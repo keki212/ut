@@ -25,8 +25,8 @@ body {
 }
 
 header {
-  background: linear-gradient(135deg, #1d4ed8, #2563eb 60%, #3b82f6);
-  color: #fff;
+  background: linear-gradient(135deg, #fdfdfd, #ebedf1 60%, #f0f1f4);
+  color: #1d4ed8;
   padding: 20px 16px;
   display: flex;
   flex-direction: row;
@@ -43,7 +43,7 @@ header h1 {
 
 header p {
   margin: 0;
-  color: #e5ecff
+  color: #1d4ed8
 }
 
 main {
@@ -269,5 +269,6 @@ canvas {
 .logo {
   height: 80px;
   width: auto;
-  margin-bottom: 10px
+  margin-bottom: 10px;
+  margin-right: 30px;
 }
