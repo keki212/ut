@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Reevaluación de Proveedores – App Web Simple</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <img src="assets/logo.png" alt="logo empresa" class="logo" />
+  <div>
+    <h1>Reevaluación de Proveedores</h1>
+    <p>Evaluación integral con clasificación A–D, acciones recomendadas y gráfico de cumplimiento.</p>
+    <h3 id="codigoEvalucion"></h3>
+  </div>
+</header>
+<main class="grid">
+  <!-- Selector de tipo y escala -->
+  <section class="card">
+    <h2>Tipo de Proveedor</h2>
+    <div class="row">
+      <div>
+        <label for="tipoProveedor">Seleccione el tipo</label>
+        <select id="tipoProveedor">
+          <option value="LAB">REEVALUACIÓN DE PROVEEDORES DE SERVICIOS DE LABORATORIO</option>
+          <option value="PROD_SERV">REEEVALUACIÓN DE PROVEEDORES DE PRODUCTOS Y SERVICIOS</option>
+          <option value="PROF">REEVALUACIÓN DE PROVEEDORES DE SERVICIOS PROFESIONALES</option>
+        </select>
+        <div class="footer-note">El cuestionario cambia automáticamente según el tipo seleccionado.</div>
+      </div>
+      <div>
+        <label for="fechaEjec">Fecha de Ejecución de Evaluación</label>
+        <input type="date" id="fechaEjec" />
+      </div>
+    </div>
+    <h3>Escala, Categorías y Acciones</h3>
+    <table class="scale-table">
+      <thead>
+        <tr>
+          <th>Categoría</th>
+          <th>Rango Puntuación</th>
+          <th>Condición Continuidad</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge A">A</span></td>
+          <td>100 – 90</td>
+          <td>Confiable, cumple ampliamente los requisitos para asegurar la calidad de los servicios prestados.</td>
+          <td>Divulgar los resultados al proveedor.</td>
+        </tr>
+        <tr>
+          <td><span class="badge B">B</span></td>
+          <td>90 – 80</td>
+          <td>Aceptable, cumple satisfactoriamente con requisitos para asegurar la calidad de los servicios prestados.</td>
+          <td>
+            • Incluir en observaciones los puntos específicos de falla.<br/>
+            • Divulgar resultados e informar puntos con baja calificación; instar a su mejora.
+          </td>
+        </tr>
+        <tr>
+          <td><span class="badge C">C</span></td>
+          <td>&lt; 80</td>
+          <td>No confiable, requiere revisiones rigurosas, asesoría y seguimiento permanente.</td>
+          <td>
+            • Incluir en observaciones los puntos específicos de falla.<br/>
+            • Divulgar resultados e informar que debe presentar plan de acción para seguimiento.
+          </td>
+        </tr>
+        <tr>
+          <td><span class="badge D">D</span></td>
+          <td>&lt; 50</td>
+          <td>No aceptable, suspender servicios y buscar nuevo proveedor.</td>
+          <td>
+            • Incluir en observaciones los puntos específicos de falla.<br/>
+            • Divulgar resultados e informar hasta cuándo se solicitarán productos/servicios.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Datos del proveedor -->
+  <section class="card">
+    <h2>Sección 1 – Datos del Proveedor</h2>
+    <div class="row">
+      <div>
+        <label for="empresa">Nombre de la Empresa</label>
+        <input type="text" id="empresa" placeholder="Ej. Laboratorios ACME S.A.S." />
+      </div>
+      <div>
+        <label for="nit">NIT</label>
+        <input type="text" id="nit" placeholder="Ej. 900.123.456-7" />
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label for="direccion">Dirección</label>
+        <input type="text" id="direccion" placeholder="Ej. Calle 123 #45-67" />
+      </div>
+      <div>
+        <label for="ciudad">Ciudad</label>
+        <input type="text" id="ciudad" placeholder="Ej. Bogotá D.C." />
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label for="tel">TEL/PBX</label>
+        <input type="text" id="tel" placeholder="Ej. (601) 1234567" />
+      </div>
+      <div>
+        <label for="email">Email de contacto</label>
+        <input type="email" id="email" placeholder="contacto@empresa.com" />
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label for="fechaIni">Fecha de Evaluación Inicial</label>
+        <input type="date" id="fechaIni" />
+      </div>
+      <div>
+        <label for="fechaUlt">Fecha de la Última Evaluación</label>
+        <input type="date" id="fechaUlt" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Evaluación -->
+  <section class="card" id="evaluacionCard">
+    <h2>Sección 2 – Evaluación del Proveedor</h2>
+    <p class="muted">Asigne un valor por ítem: 1 (Deficiente), 2 (Insuficiente), 3 (Aceptable), 4 (Bueno), 5 (Sobresaliente).</p>
+    <div id="cuestionario"></div>
+
+    <div class="actions">
+      <button class="primary" id="btnCalcular">Calcular Cumplimiento</button>
+      <button class="secondary" id="btnMostrarPesos">Ver Pesos</button>
+      <button class="danger" id="btnLimpiar">Limpiar todo</button>
+    </div>
+
+    <div class="result" id="resultado" style="display:none;">
+      <h3>Sección 3 – Gráfica de Cumplimiento</h3>
+      <div class="flex">
+        <canvas id="gauge" width="640" height="90" aria-label="Gráfico de cumplimiento"></canvas>
+        <div>
+          <div id="pctTxt" style="font-size:1.6rem;font-weight:800;"></div>
+          <div id="catTxt" style="margin-top:6px;"></div>
+          <div id="accionTxt" style="margin-top:6px;"></div>
+          <div class="footer-note">Línea vertical indica el mínimo aceptable (80%).</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Observaciones -->
+  <section class="card">
+    <h2>Sección 4 – Observaciones al Proveedor</h2>
+    <textarea id="observaciones" placeholder="Escriba aquí observaciones específicas: puntos con baja calificación, recomendaciones, compromisos, fechas, etc."></textarea>
+  </section>
+
+  <!-- Evaluador -->
+  <section class="card">
+    <h2>Sección 5 – Datos del Evaluador</h2>
+    <div class="row">
+      <div>
+        <label for="evalNombre">Nombre</label>
+        <input type="text" id="evalNombre" placeholder="Ej. Juan Pérez" />
+      </div>
+      <div>
+        <label for="evalCargo">Cargo</label>
+        <input type="text" id="evalCargo" placeholder="Ej. Coordinador de Calidad" />
+      </div>
+      <div>
+        <label for="evalArea">Área</label>
+        <input type="text" id="evalArea" placeholder="Ej. Calidad" />
+      </div>
+    </div>
+  </section>
+</main>
+<script type="module" src="main.js"></script>
+</body>
+</html>
