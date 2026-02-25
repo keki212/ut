@@ -113,36 +113,36 @@
   const Q = {
   LAB: [
     { group: '2.1 CUMPLIMIENTO', items: [
-      { code: '2.1.1', text: 'El laboratorio cumplió con las fechas acordadas para el servicio?', weight: 0.15 }, // 15%
-      { code: '2.1.2', text: 'El laboratorio cumplió con las fechas acordadas para la entrega de informes?', weight: 0.15 }, // 15%
+      { code: '2.1.1', text: 'El laboratorio cumplió con las fechas acordadas para el servicio?', weight: 0.10 }, // 10%
+      { code: '2.1.2', text: 'El laboratorio cumplió con las fechas acordadas para la entrega de informes?', weight: 0.20 }, // 20%
     ]},
     { group: '2.2 CALIDAD', items: [
-      { code: '2.2.1', text: '¿Son confiables los resultados del laboratorio?', weight: 0.15 }, // 20%
-      { code: '2.2.2', text: '¿Está acreditado por la ONAC, IDEAM o cualquier organismo autorizado? (Puede anexar copia de la resolución)', attach: true, weight: 0.20 }, // 20%
+      { code: '2.2.1', text: '¿Son confiables los resultados del laboratorio?', weight: 0.15 }, // 15%
+      { code: '2.2.2', text: '¿Está acreditado por la ONAC, IDEAM o cualquier organismo autorizado? (Puede anexar copia de la resolución)', attach: true, weight: 0.15 }, // 15%
     ]},
     { group: '2.3 SEGURIDAD Y SALUD EN EL TRABAJO', items: [
       { code: '2.3.1', text: 'Demostró cumplimiento de la normatividad en materia de seguridad y salud en el trabajo? * Según matriz de reevaluación.', weight: 0.20 }, // 20%
     ]},
     { group: '2.4 GESTIÓN AMBIENTAL', items: [
-      { code: '2.4.1', text: 'Demostró cumplimiento de la normatividad en materia ambiental?', weight: 0.15 }, // 15%
+      { code: '2.4.1', text: 'Demostró cumplimiento de la normatividad en materia ambiental?', weight: 0.20 }, // 20%
     ]},
   ],
 
   PROD_SERV: [
     { group: '2.1 CUMPLIMIENTO', items: [
-      { code: '2.1.1', text: 'El producto o servicio cumple con las especificaciones solicitadas.', weight: 0.15 }, // 15%
-      { code: '2.1.2', text: 'Cumplió con la entrega/prestación de acuerdo con las fechas acordadas.', weight: 0.15 }, // 15%
+      { code: '2.1.1', text: 'El producto o servicio cumple con las especificaciones solicitadas.', weight: 0.20 }, // 20%
+      { code: '2.1.2', text: 'Cumplió con la entrega/prestación de acuerdo con las fechas acordadas.', weight: 0.10 }, // 10%
     ]},
     { group: '2.2 CALIDAD', items: [
-      { code: '2.2.1', text: 'En caso de utilizar garantías, ¿fue con calidad y oportunidad?', weight: 0.15 }, // 15%
-      { code: '2.2.2', text: '¿Resolvió quejas presentadas con calidad y oportunidad?', weight: 0.15 }, // 15%
-      { code: '2.2.3', text: '¿Prestó un servicio más allá del deber? Proactividad y valor agregado.', weight: 0.15 }, // 15%
+      { code: '2.2.1', text: 'En caso de utilizar garantías, ¿fue con calidad y oportunidad?', weight: 0.10 }, // 10%
+      { code: '2.2.2', text: '¿Resolvió quejas presentadas con calidad y oportunidad?', weight: 0.10 }, // 10%
+      { code: '2.2.3', text: '¿Prestó un servicio más allá del deber? Proactividad y valor agregado.', weight: 0.10 }, // 10%
     ]},
     { group: '2.3 SEGURIDAD Y SALUD EN EL TRABAJO', items: [
-      { code: '2.3.1', text: 'Demostró cumplimiento en SST? * Según matriz. * Si no aplica, calificar 5.', na: true, weight: 0.10 }, // 10%
+      { code: '2.3.1', text: 'Demostró cumplimiento en SST? * Según matriz. * Si no aplica, calificar 5.', na: true, weight: 0.20 }, // 20%
     ]},
     { group: '2.4 GESTIÓN AMBIENTAL', items: [
-      { code: '2.4.1', text: 'Demostró cumplimiento en materia ambiental? * Según matriz. * Si no aplica, calificar 5.', na: true, weight: 0.15 }, // 15%
+      { code: '2.4.1', text: 'Demostró cumplimiento en materia ambiental? * Según matriz. * Si no aplica, calificar 5.', na: true, weight: 0.20 }, // 20%
     ]},
   ],
 
@@ -158,7 +158,7 @@
       { code: '2.2.3', text: 'Presenta conceptos y aportes tabulados, organizados, con estructura documental y técnica.', weight: 0.10 }, // 10%
       { code: '2.2.4', text: 'Asiste puntualmente a reuniones y comités citados.', weight: 0.05 }, // 5%
       { code: '2.2.5', text: 'Atendió observaciones, quejas y/o reclamos en función de sus servicios.', weight: 0.10 }, // 10%
-      { code: '2.2.6', text: 'Atendió PQRS, siendo oportuna y efectiva. * Si no hubo quejas, colocar calificación más alta.', na: true, weight: 0.10 }, // 10%
+      { code: '2.2.6', text: 'Atendió PQRS, siendo oportuna y efectiva. * Si no hubo quejas, colocar calificación más alta.', na: true, weight: 0.05 }, // 5%
     ]},
     { group: '2.3 SEGURIDAD Y SALUD EN EL TRABAJO', items: [
       { code: '2.3.1', text: 'Demostró cumplimiento de la normatividad en SST.', weight: 0.10 }, // 10%
@@ -168,6 +168,7 @@
     ]},
   ],
 };
+
 
 
   // Render dinámico del cuestionario
